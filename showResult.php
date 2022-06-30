@@ -1,8 +1,14 @@
-<?php
-    echo $listTutoFetched['nomTuto'] . '/' . $listTutoFetched['niveau'] . '/' . $listTutoFetched['temps'] . '/';
-    ?>
-    <img src="<?= $listTutoFetched['docPatron'] ?>" width="200" height="200">
-    <img src="<?= $listTutoFetched['lienRessource'] ?>" width="200" height="200">
+     <div class="card" style="width: 25rem;margin: 0 auto; width: 400px;">
+ 
+  <img src="<?= $listTutoFetched['lienRessource'] ?>" class="card-img-top" width="200" height="200">
+  <div class="card-body">
+    <h5 class="card-title" style="text-decoration: underline;"><?= $listTutoFetched['nomTuto'] ?></h5>
+    <h6 class="card-title badge badge-success"><?= $listTutoFetched['niveau']?></h6>
+    <br><b>Outils :</b>
+
+
+   <!-- <img src="<?= $listTutoFetched['docPatron'] ?>" width="200" height="200">  --><!-- 
+    <img src="<?= $listTutoFetched['lienRessource'] ?>" width="200" height="200"> -->
     <?php
 
     /*** Affichage des outils  ***/
@@ -15,12 +21,12 @@
         $listTool = $BDD -> query('SELECT * FROM outillage WHERE idOutil IN (' . $listIdToolFetched['idOutil1'] . ', ' .
                                                                                 $listIdToolFetched['idOutil2'] . ', ' .
                                                                                 $listIdToolFetched['idOutil3'] . ')');
-        echo 'liste outils : ';
 
         // while : parcourir les résultats de la query de la variable $listTool -> affichage du nom des outils de chaque tuto
         while($listToolFetched = $listTool -> fetch()) {
-            echo $listToolFetched['nomOutil'] . ' ';
+             ?>  <font><?= $listToolFetched['nomOutil']?>,</font> <?php ' ';
         }
+      ?><br><br><b>Matériaux : </b><?php
     }
 
     /*** Affichage des matériaux  ***/
@@ -33,12 +39,12 @@
         $listMaterial = $BDD -> query('SELECT * FROM materiaux WHERE idMateriaux IN (' . $listIdMaterialFetched['idMateriaux1'] . ', ' .
                                                                                         $listIdMaterialFetched['idMateriaux2'] . ', ' .
                                                                                         $listIdMaterialFetched['idMateriaux3'] . ')');
-        echo '/ liste matériaux : ';
 
         // while : parcourir les résultats de la query de la variable $listMaterial -> affichage du nom des matériaux de chaque tuto
         while($listMaterialFetched = $listMaterial -> fetch()) {
-            echo $listMaterialFetched['nomMateriaux'] . ' ';
+            ?><font><?= $listMaterialFetched['nomMateriaux']?>,</font> <?php ' ';
         }
+
     }
 
     /*** Affichage des compétences  ***/
@@ -51,11 +57,22 @@
         $listCompetence = $BDD -> query('SELECT * FROM competence WHERE idCompetence IN (' . $listIdCompetenceFetched['idCompetence1'] . ', ' .
                                                                                         $listIdCompetenceFetched['idCompetence2'] . ', ' .
                                                                                         $listIdCompetenceFetched['idCompetence3'] . ')');
-        echo '/ liste compétences : ';
+        // echo '/ liste compétences : ';
 
-        // while : parcourir les résultats de la query de la variable $listCompetence -> affichage du nom des compétences de chaque tuto
-        while($listCompetenceFetched = $listCompetence -> fetch()) {
-            echo $listCompetenceFetched['nomCompetence'] . ' ';
-        }
+        // // while : parcourir les résultats de la query de la variable $listCompetence -> affichage du nom des compétences de chaque tuto
+        // while($listCompetenceFetched = $listCompetence -> fetch()) {
+        //     echo $listCompetenceFetched['nomCompetence'] . ' ';
+        // }
     }
-?>
+?>  
+ 
+<br><br>
+    <b class="card-title"><?= $listTutoFetched['temps'] ?> heure(s)</b>
+
+   
+  </div>
+</div>
+<br>
+
+
+   
