@@ -1,0 +1,63 @@
+body {
+  background-image: url("../../img/sed-bg.jpg");
+}
+
+.bg-sed{
+	background-color:#051d3f;
+}
+
+/** Suppression GLOW des boutons **/
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/***************************************************************** Customisation FORMULAIRE ***********************************************************************************************/
+.form-control {
+	border-radius:0;
+	border:none;
+	border-bottom-style:solid;
+    border-bottom-width: 0.2em;
+    border-color:#051d3f;
+	transition: all 0.5s ease;
+	height:3em;
+}
+/** Suppression GLOW des focus sur formulaire **/
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-style:solid;
+  border-bottom-width: 0.2em;
+  border-color:#FED100;
+  /*border-color:#051d3f*/
+}
+
+.form-control::placeholder {
+	color:#051d3f;
+}
+
+.btn-submit {
+	border-radius:0;
+	padding-left:2rem;
+	padding-right:2rem;
+	padding-top:1rem;
+	padding-bottom:1rem;
+	border-color:#FED100;
+	transition: all 0.5s ease;
+} 
+
+.btn-submit:hover {
+	/*border-style:solid;*/
+	/* box-shadow: 0px 0px 10px 1px rgba(184,184,184,1);*/
+	background-color:#FED100;
+	color:#051d3f;
+}
+
+
+
+/***************************************************************** Fix pour forcer le tableau dataTables à width:100% du container ***********************************************************************************************/
+
+#tablo_wrapper {
+	width:100%;
+}
